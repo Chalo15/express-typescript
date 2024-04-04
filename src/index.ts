@@ -1,4 +1,6 @@
-import express from 'express'
+import express from 'express'//ESModules
+import diaryRouter from './routes/diaries'
+
 const app=express()
 app.use(express.json()) //middleware who transform the req.body to json
 
@@ -9,6 +11,7 @@ app.get('/ping', (_req,res)=>{
     res.send('pong')
 }) 
 
+app.use('/api/diaries', diaryRouter)
 app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`)
 })
